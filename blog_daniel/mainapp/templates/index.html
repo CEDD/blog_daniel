@@ -12,22 +12,29 @@
 <body>
 	<h1>blog_daniel</h1>
 	<img src="{%static 'img/inocar.png'%}" height="150px" with="150px" alt="">
-	<!--
-	<div>
-		<h3>{{ entry_title }}</h3>
-		<p>{{ entry_body }}</p>
-	</div>
-	-->
 
-	{% if entrys_total > 0 %}
-     	<h2> Tengo {{ entrys_total }} entradas disponibles :D</h2>
-	{% endif %}
-        
-        {% for entry in entrys %}
-		<div>
-			<h3> {{entry.title}} </p3>
-			<p> {{entry.body}} </p>
-		</div>
-	{% endfor%}
+     {% if entrys_total > 0 %}
+       	<h2> Tengo {{ entrys_total }} entradas disponibles :D</h2>
+    {% endif %}
+
+<main class="container" role='main'>
+       	<div class="panel panel-default">
+       	{% for entry in entrys %}
+               	<div class="panel-heading">
+                       	<h3 class="panel-title"> {{ entry.title}} </h3>
+                </div>
+               	<div class="panel-body">
+                        <div style="float:left; padding-left:1em; position:static">
+                                <img style="height:6em" class="img-responsive" src="{{ entry.img_url }}">
+                       	</div>
+
+                        <div style="float:left; padding-left:1em; position:static">
+                         {{ entry.body }}
+                         </div>
+               	</div>
+       	{% endfor %}
+       	</div>
+</main>
+
 </body>
 </html>
