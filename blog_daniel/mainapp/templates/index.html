@@ -4,9 +4,28 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="with=device-width,initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
 	<title>blog_daniel</title>
 </head>
 <body>
 	<h1>blog_daniel</h1>
+	
+	<!--
+	<div>
+		<h3>{{ entry_title }}</h3>
+		<p>{{ entry_body }}</p>
+	</div>
+	-->
+
+	{% if entrys_total > 0 %}
+     	<h2> Tengo {{ entrys_total }} entradas disponibles :D</h2>
+	{% endif %}
+        
+        {% for entry in entrys %}
+		<div>
+			<h3> {{entry.title}} </p3>
+			<p> {{entry.body}} </p>
+		</div>
+	{% endfor%}
 </body>
 </html>
